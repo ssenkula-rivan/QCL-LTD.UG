@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality & Container Inspection LTD (Q.C.I)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0066cc;
+            --cyan-blue: #00bcd4;
+            --dark-blue: #004499;
+            --text-dark: #2c3e50;
+            --whatsapp-green: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #f8f9fa;
+            font-size: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--cyan-blue);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        h5 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--cyan-blue);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue) !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 600;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--cyan-blue) !important;
+        }
+
+        .navbar .dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-item:hover {
+            background: var(--cyan-blue);
+            color: white;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        .hero-wrapper {
+            background: transparent;
+            padding-top: 76px;
+        }
+
+        .hero-left {
+            background: transparent;
+            padding: 0;
+        }
+
+        .hero-title-section {
+            background: transparent;
+            padding: 40px;
+        }
+
+        .hero-title-section .title-underline {
+            width: 60px;
+            height: 3px;
+            background: var(--cyan-blue);
+            margin-top: 15px;
+        }
+
+        .tabs-section {
+            padding: 20px 40px 40px 40px;
+            background: transparent;
+        }
+
+        .custom-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: rgba(85, 85, 85, 0.8);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .tab-btn.active {
+            background: rgba(0, 188, 212, 0.8);
+        }
+
+        .tab-btn:hover {
+            background: rgba(0, 188, 212, 0.8);
+        }
+
+        .notices-list {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .notices-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .notices-list::-webkit-scrollbar-track {
+            background: rgba(241, 241, 241, 0.5);
+        }
+
+        .notices-list::-webkit-scrollbar-thumb {
+            background: var(--cyan-blue);
+            border-radius: 10px;
+        }
+
+        .notice-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 4px solid var(--cyan-blue);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .notice-item:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateX(5px);
+        }
+
+        .notice-content {
+            flex: 1;
+            margin-right: 1rem;
+        }
+
+        .new-badge {
+            background: #ff4444;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .hero-right {
+            position: relative;
+            min-height: 600px;
+        }
+
+        .carousel {
+            height: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .carousel-inner {
+            height: 100%;
+        }
+
+        .carousel-item {
+            height: 600px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .boards-section {
+            background: transparent;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .boards-title {
+            font-size: 1.8rem;
+            color: var(--cyan-blue);
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .boards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .board-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--cyan-blue);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .board-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .board-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .board-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+
+        .search-help-bar {
+            background: rgba(248, 249, 250, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .help-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 25px;
+            border: 1px solid rgba(221, 221, 221, 0.5);
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            background: transparent;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        .help-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .help-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .help-link:hover {
+            color: var(--cyan-blue);
+        }
+
+        .footer-quick {
+            background: rgba(248, 249, 250, 0.8);
+            padding: 20px 0;
+        }
+
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .quick-link:hover {
+            color: var(--cyan-blue);
+        }
+
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--cyan-blue);
+            margin: 1rem auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .about-section {
+            background: rgba(248, 249, 250, 0.5);
+        }
+
+        .mission-vision-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: var(--cyan-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .contact-info {
+            background: rgba(248, 249, 250, 0.8);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-right: 1rem;
+        }
+
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyan-blue);
+        }
+
+        @media (max-width: 991px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            .hero-right { min-height: 400px; }
+            .carousel-item { height: 400px; }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .notice-item { flex-direction: column; }
+            .notice-content { margin-right: 0; }
+            .boards-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 576px) {
+            h1 { font-size: 1.5rem; }
+            .hero-title-section { padding: 20px; }
+            .tabs-section { padding: 15px; }
+            .custom-tabs { flex-direction: column; }
+            .tab-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="img/commodities/LOGO.png" alt="Q.C.I.Ltd. logo" class="navbar-logo me-2" style="height:40px;width:auto;display:inline-block;vertical-align:middle;">
+                Q.C.I.Ltd
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home"><i class="fas fa-home"></i></a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About Us</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#mission">Mission</a></li>
+                            <li><a class="dropdown-item" href="#vision">Vision</a></li>
+                            <li><a class="dropdown-item" href="#team">Our People</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Media</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#image-gallery">Image Gallery</a></li>
+                            <li><a class="dropdown-item" href="#video-gallery">Video Gallery</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Work With Us</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#careers">Careers</a></li>
+                            <li><a class="dropdown-item" href="#faq">Blog/FAQs</a></li>
+                            <li><a class="dropdown-item" href="#tender">Tender</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Our Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#services">All Services</a></li>
+                            <li><a class="dropdown-item" href="#marine">Marine & Survey</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <a href="https://wa.me/256778075292" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <section id="home" class="hero-wrapper">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-5 hero-left">
+                    <div class="hero-title-section">
+                        <h1>QUALITY & CONTAINER INSPECTION LTD (Q.C.I)</h1>
+                        <p class="lead">Professional Third-party Quality Analysis & Inspection Services for Agricultural Commodities</p>
+                        <div class="title-underline"></div>
+                    </div>
+                    
+                    <div class="tabs-section">
+                        <div class="custom-tabs">
+                            <button class="tab-btn active" onclick="switchTab('notices', this)">Notices</button>
+                            <button class="tab-btn" onclick="switchTab('events', this)">Events</button>
+                        </div>
+                        
+                        <div id="notices-content" class="tab-content">
+                            <div class="notices-list">
+                                <div class="notice-item">
+                                    <div class="notice-content">
+                                        <h5>Container Inspection Services Now Available</h5>
+                                        <p>Professional container inspection services ensuring cargo integrity and quality control.</p>
+                                    </div>
+                                    <span class="new-badge">NEW</span>
+                                </div>
+                                <div class="notice-item">
+                                    <div class="notice-content">
+                                        <h5>Coffee Quality Analysis Workshop - March 2025</h5>
+                                        <p>Join our expert team for comprehensive coffee quality analysis workshop with hands-on training.</p>
+                                    </div>
+                                    <span class="new-badge">NEW</span>
+                                </div>
+                                <div class="notice-item">
+                                    <div class="notice-content">
+                                        <h5>Green Coffee Sourcing - Uganda Specialty Coffee</h5>
+                                        <p>Sourcing both green specialty and commercial coffee in Uganda with quality certification.</p>
+                                    </div>
+                                </div>
+                                <div class="notice-item">
+                                    <div class="notice-content">
+                                        <h5>Stock Management & Audit Services Available</h5>
+                                        <p>Accurate stock counts, audits, and inventory verifications for warehouses.</p>
+                                    </div>
+                                </div>
+                                <div class="notice-item">
+                                    <div class="notice-content">
+                                        <h5>Quality Analysis for Cocoa, Maize, Rice & Sorghum</h5>
+                                        <p>Comprehensive quality analysis for various agricultural commodities.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="events-content" class="tab-content" style="display: none;">
+                            <div class="notices-list">
+                                <div class="notice-item">
+                                    <div class="notice-content">
+                                        <h5>Annual Quality Conference 2025</h5>
+                                        <p>Join industry leaders for our annual quality conference featuring the latest innovations.</p>
+                                    </div>
+                                    <span class="new-badge">NEW</span>
+                                </div>
+                                <div class="notice-item">
+                                    <div class="notice-content">
+                                        <h5>Coffee Cupping & Grading Workshop</h5>
+                                        <p>Learn professional coffee cupping and grading techniques from certified analysts.</p>
+                                    </div>
+                                </div>
+                                <div class="notice-item">
+                                    <div class="notice-content">
+                                        <h5>Container Security Training Session</h5>
+                                        <p>Training on container security and inspection protocols for logistics professionals.</p>
+                                    </div>
+                                </div>
+                                <div class="notice-item">
+                                    <div class="notice-content">
+                                        <h5>Agricultural Quality Standards Seminar</h5>
+                                        <p>Understanding international agricultural quality standards and compliance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7 hero-right">
+                    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" style="background-image: url('img/commodities/coffe.jpg');"></div>
+                            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2019/02/23/11/26/coffee-4015377_1280.jpg');"></div>
+                            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2017/09/19/12/45/coffee-bean-2765207_1280.jpg');"></div>
+                            <div class="carousel-item" style="background-image: url('');"></div>
+                            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2024/10/20/14/51/coffee-9135194_1280.jpg');"></div>
+                            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2013/11/05/23/55/coffee-206142_1280.jpg');"></div>
+                            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2022/11/17/23/32/plant-7599090_1280.jpg');"></div>
+                            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2016/11/29/11/58/coffee-1869343_1280.jpg');"></div>
+                            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2016/04/12/11/19/coffee-1324126_1280.jpg');"></div>
+                            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2023/06/16/03/36/coffee-8066888_1280.jpg');"></div>
+                            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2017/07/16/00/29/coffee-2508128_1280.jpg');"></div>
+                            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2020/05/04/10/57/coffee-5128678_1280.jpg');"></div>
+                            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2017/09/19/12/45/coffee-bean-2765207_1280.jpg');"></div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="boards-section">
+        <div class="container">
+            <h2 class="boards-title">BOARDS & DIVISIONS</h2>
+            
+            <div class="boards-grid">
+                <div class="board-card">
+                    <div class="board-icon"><i class="fas fa-flask"></i></div>
+                    <div class="board-name">National Accreditation Board for Testing and Calibration Laboratories</div>
+                </div>
+                <div class="board-card">
+                    <div class="board-icon"><i class="fas fa-hospital"></i></div>
+                    <div class="board-name">National Accreditation Board for Hospitals & Healthcare Providers</div>
+                </div>
+                <div class="board-card">
+                    <div class="board-icon"><i class="fas fa-certificate"></i></div>
+                    <div class="board-name">National Board for Certification Bodies</div>
+                </div>
+                <div class="board-card">
+                    <div class="board-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="board-name">National Board for Education and Training Promotion</div>
+                </div>
+                <div class="board-card">
+                    <div class="board-icon"><i class="fas fa-award"></i></div>
+                    <div class="board-name">National Board for Quality Promotion</div>
+                </div>
+            </div>
+            
+            <div class="search-help-bar">
+                <div class="help-section">
+                    <div class="search-box">
+                        <span>QUALITYSETU: —</span>
+                        <input type="text" placeholder="Looking for something?">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="help-links">
+                        <a href="#contact" class="help-link"><i class="fas fa-question-circle"></i> RAISE A QUERY</a>
+                        <a href="https://wa.me/256778075292" class="help-link" target="_blank"><i class="fas fa-comments"></i> CHAT WITH US</a>
+                        <a href="#faq" class="help-link"><i class="fas fa-info-circle"></i> FAQ'S</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-quick">
+        <div class="container">
+            <div class="quick-links">
+                <a href="#services" class="quick-link"><i class="fas fa-search"></i><span>Looking for Services?</span></a>
+                <a href="#contact" class="quick-link"><i class="fas fa-question-circle"></i><span>Raise a Query</span></a>
+                <a href="https://wa.me/256778075292" class="quick-link" target="_blank"><i class="fas fa-comments"></i><span>Chat With Us</span></a>
+                <a href="#faq" class="quick-link"><i class="fas fa-info-circle"></i><span>FAQ's</span></a>
+            </div>
+        </div>
+    </div>
+
+    <section id="mission" class="content-section about-section">
+        <div class="container">
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mission-vision-card">
+                        <h3><i class="fas fa-bullseye me-2"></i>Our Mission</h3>
+                        <p>To provide exceptional third-party quality analysis and inspection services for agricultural commodities, ensuring the highest standards of quality control, reliability, and timely delivery to our clients across Uganda and beyond.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mission-vision-card">
+                        <h3><i class="fas fa-eye me-2"></i>Our Vision</h3>
+                        <p>To be the leading quality analysis and inspection company in East Africa, recognized for our expertise in agricultural commodity testing, container inspection, and commitment to excellence in service delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Our People</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <div class="member-photo"><i class="fas fa-user"></i></div>
+                        <h4>Management Team</h4>
+                        <p class="text-muted">Leadership</p>
+                        <p>Dedicated professionals with extensive experience in quality control and agricultural commodity analysis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <div class="member-photo"><i class="fas fa-user-tie"></i></div>
+                        <h4>Quality Analysts</h4>
+                        <p class="text-muted">Technical Team</p>
+                        <p>Expert analysts specializing in coffee, cocoa, and agricultural commodity quality assessment.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <div class="member-photo"><i class="fas fa-users"></i></div>
+                        <h4>Inspection Team</h4>
+                        <p class="text-muted">Field Operations</p>
+                        <p>Experienced inspectors conducting thorough container and stock management audits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="content-section about-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon text-center"><i class="fas fa-coffee"></i></div>
+                        <h4 class="text-center mb-3">Quality Analysis</h4>
+                        <p>Comprehensive quality analysis for coffee, cocoa, maize, rice, sorghum, and beans with professional laboratory testing.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon text-center"><i class="fas fa-boxes"></i></div>
+                        <h4 class="text-center mb-3">Container Inspection</h4>
+                        <p>Professional container inspection services ensuring cargo integrity and quality control throughout the shipping process.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon text-center"><i class="fas fa-seedling"></i></div>
+                        <h4 class="text-center mb-3">Coffee Sourcing</h4>
+                        <p>Sourcing both green specialty and commercial coffee in Uganda with quality certification and export support.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon text-center"><i class="fas fa-warehouse"></i></div>
+                        <h4 class="text-center mb-3">Stock Audits</h4>
+                        <p>Accurate stock counts, audits, and inventory verifications for warehouses and storage facilities.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon text-center"><i class="fas fa-spray-can"></i></div>
+                        <h4 class="text-center mb-3">Fumigation Services</h4>
+                        <p>Expert fumigation and pest control services protecting commodities during storage and transport.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" id="marine">
+                    <div class="service-card">
+                        <div class="service-icon text-center"><i class="fas fa-ship"></i></div>
+                        <h4 class="text-center mb-3">Marine & Survey</h4>
+                        <p>Marine surveying and vessel inspection services ensuring compliance with international standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="image-gallery" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Image Gallery</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://cdn.pixabay.com/photo/2015/06/22/09/33/container-817406_1280.jpg" alt="Coffee Inspection">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="img/container inspection/bags.jpg" alt="Container Inspection">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/04/19/14/31/lab-1338722_1280.jpg" alt="Warehouse Audit">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://cdn.pixabay.com/photo/2014/08/22/21/25/coffee-424763_1280.jpg" alt="Quality Testing">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://cdn.pixabay.com/photo/2023/04/09/07/04/fish-7910906_1280.jpg" alt="Agricultural Commodities">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/01/21/18/10/coffee-1154356_1280.jpg" alt="Team at Work">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video-gallery" class="content-section about-section">
+        <div class="container">
+            <h2 class="section-title">Video Gallery</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <h4 class="mb-3">Quality Inspection Process</h4>
+                        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center;">
+                                <i class="fas fa-play-circle" style="font-size: 4rem;"></i>
+                                <p class="mt-3">Video Coming Soon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <h4 class="mb-3">Coffee Grading & Analysis</h4>
+                        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center;">
+                                <i class="fas fa-play-circle" style="font-size: 4rem;"></i>
+                                <p class="mt-3">Video Coming Soon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="careers" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Careers</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="service-card text-center">
+                        <i class="fas fa-users service-icon" style="display: block;"></i>
+                        <h3 class="mb-4">Join Our Team</h3>
+                        <p class="lead">Q.C.I is always looking for talented professionals to join our growing team.</p>
+                        <h5 class="mt-4 mb-3">Current Opportunities:</h5>
+                        <ul class="text-start" style="max-width: 600px; margin: 0 auto;">
+                            <li>Quality Analyst - Coffee & Cocoa</li>
+                            <li>Container Inspector</li>
+                            <li></li>
+                            <li>Laboratory Technician</li>
+                            <li>Field Auditor</li>
+                        </ul>
+                        <p class="mt-4">Send your CV to <strong>careers@qci-uganda.com</strong></p>
+                        <a href="#contact" class="btn btn-primary btn-lg mt-3" style="background: var(--cyan-blue); border: none; padding: 12px 40px; border-radius: 25px;">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="content-section about-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item mb-3" style="border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 10px;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="border-radius: 10px;">
+                                    What services does Q.C.I provide?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Q.C.I provides comprehensive third-party quality analysis for agricultural commodities including coffee, cocoa, maize, rice, sorghum, and beans. We also offer container inspection, stock audits, fumigation services, and marine surveying.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item mb-3" style="border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 10px;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    How long does a quality analysis take?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Standard quality analysis typically takes 24-48 hours depending on the commodity and tests required. Rush services are available for urgent requirements.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item mb-3" style="border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 10px;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Do you provide coffee sourcing services?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes! We specialize in sourcing both green specialty and commercial coffee from various regions in Uganda with quality certification and export support.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item mb-3" style="border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 10px;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    What areas do you serve?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We are based in Kampala, Uganda, and serve clients throughout Uganda and the East African region with mobile teams available for remote locations.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item mb-3" style="border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 10px;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Are you certified?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, Q.C.I maintains all necessary certifications and follows international standards for quality analysis and inspection services.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tender" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Tenders & Opportunities</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="service-card">
+                        <h4 class="mb-4">Current Tenders</h4>
+                        <div class="notice-item" style="border-bottom: 1px solid #e0e0e0; padding: 20px 0;">
+                            <h5>Tender Notice: Quality Analysis Services</h5>
+                            <p class="text-muted mb-2">Posted: January 2025 | Deadline: March 15, 2025</p>
+                            <p>We invite qualified suppliers to submit tenders for laboratory equipment and testing supplies.</p>
+                        </div>
+                        <div class="notice-item" style="border-bottom: 1px solid #e0e0e0; padding: 20px 0;">
+                            <h5>Partnership Opportunities</h5>
+                            <p class="text-muted mb-2">Ongoing</p>
+                            <p>Q.C.I is seeking strategic partnerships with agricultural commodity exporters and warehouse operators.</p>
+                        </div>
+                        <div class="text-center mt-4">
+                            <p>For tender inquiries: <strong>tenders@qci-uganda.com</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="content-section about-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Get in Touch</h4>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <strong>Address:</strong><br>
+                                Kawempe Plaza Building<br>
+                                Bombo Road<br>
+                                P.O.Box 930102<br>
+                                Kampala, Uganda
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                +256 778 075 292
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                info@qci-uganda.com<br>
+                                careers@qci-uganda.com<br>
+                                tenders@qci-uganda.com
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock contact-icon"></i>
+                            <div>
+                                <strong>Business Hours:</strong><br>
+                                Monday - Friday: 8:00 AM - 6:00 PM<br>
+                                Saturday: 9:00 AM - 2:00 PM<br>
+                                Sunday: Closed
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp contact-icon" style="color: var(--whatsapp-green);"></i>
+                            <div>
+                                <strong>WhatsApp:</strong><br>
+                                <a href="https://wa.me/256778075292" target="_blank" style="color: var(--whatsapp-green); text-decoration: none;">+256 778 075 292</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form class="contact-info">
+                        <h4 class="mb-4">Send Us a Message</h4>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Phone Number">
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-control">
+                                <option value="">Select Service</option>
+                                <option value="quality">Quality Analysis</option>
+                                <option value="container">Container Inspection</option>
+                                <option value="coffee">Coffee Sourcing</option>
+                                <option value="stock">Stock Audit</option>
+                                <option value="fumigation">Fumigation Services</option>
+                                <option value="marine">Marine Survey</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="background: var(--cyan-blue); border: none; padding: 12px 40px; border-radius: 25px; width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h5><i class="fas fa-certificate me-2"></i>Quality & Container Inspection LTD</h5>
+                    <p class="mt-3">Professional third-party quality analysis and inspection services for agricultural commodities.</p>
+                    <div class="mt-3">
+                        <a href="#" style="color: white; font-size: 1.5rem; margin-right: 15px;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem; margin-right: 15px;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem; margin-right: 15px;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/256778075292" target="_blank" style="color: white; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h6>Quick Links</h6>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#mission">About Us</a>
+                        <a href="#services">Services</a>
+                        <a href="#careers">Careers</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Our Services</h6>
+                    <div class="footer-links">
+                        <a href="#services">Quality Analysis</a>
+                        <a href="#services">Container Inspection</a>
+                        <a href="#services">Coffee Sourcing</a>
+                        <a href="#services">Stock Audits</a>
+                        <a href="#services">Fumigation</a>
+                        <a href="#marine">Marine Survey</a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Contact Info</h6>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Kawempe Plaza Building<br>Bombo Road, Kampala</p>
+                    <p><i class="fas fa-envelope me-2"></i>info@qci-uganda.com</p>
+                    <p><i class="fas fa-phone me-2"></i>+256 778 075 292</p>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Quality & Container Inspection LTD. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Designed with <i class="fas fa-heart" style="color: #ff0000;"></i> for Quality Excellence</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function switchTab(tabName, button) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            document.querySelectorAll('.tab-btn').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabName + '-content').style.display = 'block';
+            button.classList.add('active');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            this.reset();
+        });
+
+        document.querySelectorAll('.navbar-nav .nav-link, .dropdown-item').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
